@@ -1,22 +1,23 @@
-package ru.ivmiit;
+package ru.ivmiit.list;
 
+import ru.ivmiit.model.Human;
 
 public class Node {
     // значение узла
-    private int value;
+    private Human value;
     // указатель на следующий элемент
     private Node next;
 
-    public Node(int value) {
+    public Node(Human value) {
         this.value = value;
     }
 
-    public Node(int value, Node next) {
+    public Node(Human value, Node next) {
         this.value = value;
         this.next = next;
     }
 
-    public int getValue() {
+    public Human getValue() {
         return value;
     }
 

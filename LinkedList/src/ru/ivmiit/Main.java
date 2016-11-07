@@ -1,20 +1,21 @@
 package ru.ivmiit;
 
+import ru.ivmiit.list.HumansLinkedList;
+import ru.ivmiit.model.Human;
+import ru.ivmiit.services.HumansListsSorter;
+import ru.ivmiit.utils.HumanReader;
+import ru.ivmiit.utils.HumansWriter;
+
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.add(10);
-        list.add(-9);
-        list.add(11);
-        list.add(34);
+        HumanReader humanReader = new HumanReader("C:\\Users\\admin.WIN-IPM3OA3VQNQ\\Desktop\\JAVA\\09-622\\LinkedList\\recources\\data.csv");
 
-        list.print();
+        HumansListsSorter sorter = new HumansListsSorter();
+        HumansLinkedList[] prepared = sorter.readHumansPrepareToSort(humanReader);
+        HumansLinkedList result = sorter.mergeAll(prepared);
 
-        list.remove(34);
-
-        System.out.println("--------");
-
-        list.print();
+        HumansWriter writer = new HumansWriter();
+        writer.writeHumansList(result, "out.csv");
     }
 }
