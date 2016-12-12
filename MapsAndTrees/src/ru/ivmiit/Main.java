@@ -1,8 +1,11 @@
 package ru.ivmiit;
 
 import ru.ivmiit.map.Map;
-import ru.ivmiit.map.array.MapArrayImpl;
+
 import ru.ivmiit.map.tree.MapTreeImpl;
+import ru.ivmiit.set.Set;
+import ru.ivmiit.set.SetMapImpl;
+
 
 public class Main {
 
@@ -28,5 +31,15 @@ public class Main {
         //System.out.println(fromMapName);
 
         myMap.show();
+
+        Set set = new SetMapImpl();
+        set.put(34);
+        set.put(27);
+        set.put(67);
+        set.put(67);
+
+        System.out.println(set.contains(27));
+        System.out.println(set.contains(67));
+        System.out.println(set.contains(35));
     }
 }
