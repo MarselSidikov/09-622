@@ -6,6 +6,8 @@ import ru.ivmiit.map.tree.MapTreeImpl;
 import ru.ivmiit.set.Set;
 import ru.ivmiit.set.SetMapImpl;
 
+import java.util.HashMap;
+
 
 public class Main {
 
@@ -41,5 +43,18 @@ public class Main {
         System.out.println(set.contains(27));
         System.out.println(set.contains(67));
         System.out.println(set.contains(35));
+
+        String hello = "Hello";
+        System.out.println(hello.hashCode());
+        String hella = "Hella";
+        System.out.println(hella.hashCode());
+
+        Integer a = -300;
+        Integer b = -300;
+
+        System.out.println(a == b);
+
+
+
     }
 }
