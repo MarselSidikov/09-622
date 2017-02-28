@@ -9,7 +9,7 @@ import static ru.ivmiit.algo.LongArithmeticUtils.*;
  * @version v1.0
  */
 public class LongArithmetic {
-    public static char[] sum(char[] a,char[] b) {
+    public static char[] sum(char[] a, char[] b) {
         // переворачиваем два числа
         reverse(a);
         reverse(b);
