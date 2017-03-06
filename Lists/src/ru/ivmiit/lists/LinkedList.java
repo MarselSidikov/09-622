@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @version v1.0
  */
 public class LinkedList<T> implements List<T> {
-    private class Node {
+    class Node {
 
         T value;
         Node next;

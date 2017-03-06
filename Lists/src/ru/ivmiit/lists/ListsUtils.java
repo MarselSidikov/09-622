@@ -1,5 +1,6 @@
 package ru.ivmiit.lists;
 
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -10,17 +11,30 @@ import java.util.Iterator;
  * @version v1.0
  */
 public class ListsUtils {
-    public static <T extends Comparable<T>> void sort(ArrayList<T> list) {
+
+    public static <T> void sort(ArrayList<T> list, Comparator<T> comparator) {
         Object elements[] = list.getElements();
         for (int i = list.size() - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (((Comparable<T>)elements[j]).compareTo((T)elements[j+1]) > 0 ) {
+                T a = (T)elements[j];
+                T b = (T)elements[j + 1];
+                boolean aMoreThanB;
+                if (comparator == null) {
+                    aMoreThanB = ((Comparable<T>)a).compareTo(b) > 0;
+                } else {
+                    aMoreThanB = comparator.compare(a, b) > 0;
+                }
+                
+                if (aMoreThanB) {
                     Object temp = elements[j];
                     elements[j] = elements[j+1];
                     elements[j+1] = temp;
                 }
             }
         }
+    }
+    public static <T extends Comparable<T>> void sort(ArrayList<T> list) {
+        sort(list, null);
     }
 
     /*
@@ -84,5 +98,9 @@ public class ListsUtils {
         }
 
         return resultList;
+    }
+
+    public void removeByNode(LinkedList.Node node) {
+        
     }
 }

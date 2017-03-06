@@ -2,8 +2,6 @@ package ru.ivmiit;
 
 import ru.ivmiit.algo.LongArithmetic;
 
-import java.math.BigInteger;
-
 public class Main {
 
     public static void main(String[] args) {
