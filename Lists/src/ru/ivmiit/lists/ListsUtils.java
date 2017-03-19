@@ -101,6 +101,6 @@ public class ListsUtils {
     }
 
     public void removeByNode(LinkedList.Node node) {
-        
+
     }
 }
