@@ -1,0 +1,7 @@
+1) Скачиваем драйвер
+https://jdbc.postgresql.org/
+2) Перемещаем в папку с проектом 
+- lib
+3) File -> Project Stucture ->
+Libraries -> + -> Java -> Драйвер
+-> OK OK OK повторить пока эта жесть не исчезнет
