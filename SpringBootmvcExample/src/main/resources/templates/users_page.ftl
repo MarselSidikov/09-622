@@ -1,6 +1,9 @@
 <#ftl encoding='UTF-8'>
 <#import "spring.ftl" as spring />
 <@spring.bind "model" />
+<head>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
 <body>
 <table>
     <tr>
