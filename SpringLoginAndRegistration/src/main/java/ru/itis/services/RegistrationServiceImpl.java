@@ -8,6 +8,7 @@ import ru.itis.forms.UserRegistrationForm;
 import ru.itis.models.User;
 import ru.itis.repositories.UsersRepository;
 import ru.itis.security.role.Role;
+import ru.itis.security.states.State;
 
 /**
  * 10.11.2017
@@ -31,6 +32,7 @@ public class RegistrationServiceImpl implements RegistrationService {
                 .login(userForm.getLogin())
                 .hashPassword(passwordEncoder.encode(userForm.getPassword()))
                 .role(Role.USER)
+                .state(State.CONFIRMED)
                 .build();
         // сохраняем пользователя
         usersRepository.save(newUser);

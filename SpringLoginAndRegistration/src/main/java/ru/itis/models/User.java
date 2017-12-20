@@ -30,13 +30,6 @@ public class User {
 
     private String name;
 
-    private String color;
-
-    private Integer age;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
-    private Set<Auto> autos;
-
     @Column(unique = true)
     private String login;
 

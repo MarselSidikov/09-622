@@ -16,9 +16,11 @@ import java.util.Collections;
  * @author Marsel Sidikov (First Software Engineering Platform)
  * @version 1.0
  */
-// класс, который помогает спрингу понять, как устроена ваша сущность для авторизации
+// UserDetails - интерфейс, который описывает объек безопасности
+// реализуем интерфейс по-своему
 public class UserDetailsImpl implements UserDetails {
-
+    // объект пользователя, из которого
+    // тянутся все данные
     private User user;
 
     public UserDetailsImpl(User user) {

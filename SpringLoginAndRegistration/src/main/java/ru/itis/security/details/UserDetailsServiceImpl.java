@@ -14,20 +14,21 @@ import ru.itis.repositories.UsersRepository;
  * @author Marsel Sidikov (First Software Engineering Platform)
  * @version 1.0
  */
+/* UserDetailsService - интерфейс, который позволяет
+получить объект авторизации по userName
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UsersRepository usersRepository;
-
     @Autowired
-    public UserDetailsServiceImpl(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
-    }
+    private UsersRepository usersRepository;
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = usersRepository.findOneByLogin(login).orElseThrow(()
                 -> new IllegalArgumentException("User not found by login <" + login + ">"));
+        // создаем объект UserDetails
+        // кладем туда пользователя
         return new UserDetailsImpl(user);
     }
 }

@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
                 .permitAll();
-
+        // пока забейте
         http.csrf().disable();
     }
 
@@ -65,6 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider);
     }
 
+    // пока забейте
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

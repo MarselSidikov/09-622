@@ -25,17 +25,26 @@ import java.util.Optional;
  * @author Sidikov Marsel (First Software Engineering Platform)
  * @version v1.0
  */
+/*
+    Провайдер - то, что выполняет аутентификацию
+    Авторизация - вход в систему пользователем
+    под логином и паролем
+    Аутентификация - проверка прав пользователя
+ */
 @Component
 public class AuthProvider implements AuthenticationProvider {
 
     @Autowired
-    UsersRepository usersRepository;
+    private UsersRepository usersRepository;
 
     @Autowired
     private UserDetailsService userDetailsService;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    // метод аутентификации
+    // получает на вход аутентификационные данные
+    // пользователя
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         // получаем имя пользователя
@@ -55,6 +64,7 @@ public class AuthProvider implements AuthenticationProvider {
                 if (passwordEncoder.matches(password, user.getHashTempPassword())) {
                     // если все нормально - обнуляем этот временный пароль пользователю
                     user.setHashTempPassword(null);
+                    // сохраняем уже без пароля
                     usersRepository.save(user);
                 } else {
                     throw new BadCredentialsException("Wrong password or login");
